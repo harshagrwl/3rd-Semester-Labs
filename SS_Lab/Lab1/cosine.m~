@@ -1,0 +1,7 @@
+clc; close all; clear all;
+t=-pi:0.01:2*pi;
+y = cos(2*pi*t);
+plot(t,y);
+xlabel('time axis');
+ylabel('y axis');
+title('cosine function');
