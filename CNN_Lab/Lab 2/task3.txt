@@ -1,0 +1,38 @@
+Request Headers
+
+Host: tools.ietf.org
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+DNT: 1
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+If-Modified-Since: Sun, 28 Jul 2019 07:14:44 GMT
+If-None-Match: "3c1e09-177f5-58eb887a10780;58f06908617cb"
+Cache-Control: max-age=0
+
+
+Response Headers
+
+HTTP/1.1 200 OK
+Date: Thu, 01 Aug 2019 04:22:49 GMT
+Server: Apache/2.2.22 (Debian)
+Content-Location: rfc2045.html
+Vary: negotiate,Accept-Encoding
+TCN: choice
+Last-Modified: Sun, 28 Jul 2019 07:14:44 GMT
+ETag: "3c1e09-177f5-58eb887a10780;58f06928fe54d"
+Accept-Ranges: bytes
+Cache-Control: max-age=604800
+Expires: Thu, 08 Aug 2019 04:22:49 GMT
+Content-Encoding: gzip
+Strict-Transport-Security: max-age=3600
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Clacks-Overhead: GNU Terry Pratchett
+Content-Length: 25691
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=UTF-8
