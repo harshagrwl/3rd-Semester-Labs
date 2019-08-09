@@ -1,5 +1,4 @@
-#include<iostream> 
-#include<stdlib.h> 
+#include<bits/stdc++.h>
 
 using namespace std; 
 
@@ -9,7 +8,7 @@ class twoStacks
 	int size; 
 	int top1, top2; 
 public: 
-twoStacks(int n) // constructor 
+twoStacks(int n)
 { 
 	size = n; 
 	arr = new int[n]; 
@@ -17,10 +16,10 @@ twoStacks(int n) // constructor
 	top2 = size; 
 } 
 
-// Method to push an element x to stack1 
+ 
 void push1(int x) 
 { 
-	// There is at least one empty space for new element 
+
 	if (top1 < top2 - 1) 
 	{ 
 		top1++; 
@@ -28,15 +27,14 @@ void push1(int x)
 	} 
 	else
 	{ 
-		cout << "Stack Overflow"; 
-		exit(1); 
+		cout << "Stack 1 is full\n"; 
+		
 	} 
 } 
 
-// Method to push an element x to stack2 
+
 void push2(int x) 
-{ 
-	// There is at least one empty space for new element 
+{
 	if (top1 < top2 - 1) 
 	{ 
 		top2--; 
@@ -44,12 +42,12 @@ void push2(int x)
 	} 
 	else
 	{ 
-		cout << "Stack Overflow"; 
-		exit(1); 
+		cout << "Stack 2 is full\n"; 
+		
 	} 
 } 
 
-// Method to pop an element from first stack 
+
 int pop1() 
 { 
 	if (top1 >= 0 ) 
@@ -60,12 +58,10 @@ int pop1()
 	} 
 	else
 	{ 
-		cout << "Stack UnderFlow"; 
-		exit(1); 
+		cout << "Stack 1 is empty\n"; 
+		
 	} 
 } 
-
-// Method to pop an element from second stack 
 int pop2() 
 { 
 	if (top2 < size) 
@@ -76,24 +72,38 @@ int pop2()
 	} 
 	else
 	{ 
-		cout << "Stack UnderFlow"; 
-		exit(1); 
+		cout << "Stack 2 is empty\n"; 
+		
 	} 
 } 
 }; 
 
 
-/* Driver program to test twStacks class */
+
 int main() 
 { 
-	twoStacks ts(5); 
-	ts.push1(5); 
-	ts.push2(10); 
-	ts.push2(15); 
-	ts.push1(11); 
-	ts.push2(7); 
-	cout << "Popped element from stack1 is " << ts.pop1(); 
-	ts.push2(40); 
-	cout << "\nPopped element from stack2 is " << ts.pop2(); 
+	twoStacks ts(10); 
+	int choice;
+	int x;
+	do{
+	cout<<"Enter 1 to push an element to Stack 1, 2 to pop fron Stack 1, 3 to push to Stack 2, 4 to pop from Stack 2 and 5 to exit\n";
+	cin>>choice;
+	switch(choice){
+		case 1: cout<<"Enter the element to be pushed to stack 1:\n";
+				cin>>x;
+				ts.push1(x);
+				break;
+		case 2: ts.pop1();
+				break;
+		case 3: cout<<"Enter the element to be pushed to stack 2:\n";
+				cin>>x;
+				ts.push2(x);
+				break;
+		case 4: ts.pop2();
+				break;
+		default: cout<<"Succesfully Closed the program\n";
+	}
+}
+while (choice!=5);
 	return 0; 
 } 
