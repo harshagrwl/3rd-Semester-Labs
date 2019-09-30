@@ -1,3 +1,0 @@
-clc; close all; clear all;
-t=-2:2;
-y=zeroes(1,2

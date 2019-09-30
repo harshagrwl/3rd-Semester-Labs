@@ -1,3 +1,0 @@
-clc;
-n = input('Enter the value of n  ');
-x = -3*pi:0.01:3*pi;
