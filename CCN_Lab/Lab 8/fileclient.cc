@@ -26,10 +26,10 @@ main(int argc, char ** argv) {
   inet_pton(AF_INET, argv[1], & servaddr.sin_addr);
   connect(sockfd, (struct sockaddr * ) & servaddr, sizeof(servaddr));
 
-  printf("enter the file name");
+  printf("enter the comaand\n");
   scanf("%s", filename);
   write(sockfd, filename, sizeof(filename));
-  printf("\n data from server: \n");
+  printf("\n output from server: \n");
   while (read(sockfd, recvline, 80) != 0) {
     fputs(recvline, stdout);
   }

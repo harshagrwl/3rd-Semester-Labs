@@ -1,0 +1,8 @@
+hello
+total 48
+-rwxr-xr-x 1 student student 12960 Sep 26 11:29 cli
+-rw-r--r-- 1 student student   829 Sep 26 11:44 fileclient.cc
+-rw-r--r-- 1 student student   810 Sep 26 11:36 fileserver.cc
+-rw-r--r-- 1 student student    14 Sep 26 11:26 hello.txt
+-rwxr-xr-x 1 student student 12952 Sep 26 11:36 ser
+-rw-r--r-- 1 student student     6 Oct 10 09:13 test.txt
