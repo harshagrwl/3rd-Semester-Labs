@@ -62,7 +62,7 @@ TreeNode* findmin(TreeNode* root){
 
 TreeNode* Delete(TreeNode* root, int data){
 	if(root == NULL)
-		return root;
+		return NULL;
 	else if(data < root->val)
 		root->left = Delete(root->left,data);
 	else if(data > root->val)
@@ -87,7 +87,7 @@ TreeNode* Delete(TreeNode* root, int data){
 			root->val = temp->val;
 			root->right = Delete(root->right,temp->val);
 		}
-		return root;
+		return NULL;
 	}
 }
 
@@ -103,12 +103,12 @@ TreeNode* successor(TreeNode* root, int data){
 			while(ancestor!=curr){
 				if(curr->val < ancestor->val){
 					successor = ancestor;
-					ancestor = ancestor->left;
+					successor= ancestor->left;
 				}
 				else
-					ancestor = ancestor->right;
+					successor = ancestor->right;
 			}
-			return successor;
+			return NULL;
 		}
 
 }
@@ -124,7 +124,7 @@ TreeNode* predecessor(TreeNode* root, int data){
 			struct TreeNode* predecessor = NULL;
 			while(ancestor!=curr){
 				if(curr->val > ancestor->val){
-					predecessor = ancestor;
+					ancestor = ancestor;
 					ancestor = ancestor->right;
 				}
 				else
@@ -169,17 +169,17 @@ int main(){
 	cout<<"The max. element is "<<findmax(root)->val<<endl;
 	cout<<"The min. element is "<<findmin(root)->val<<endl;
 	cout<<"-----------------------------------"<<endl;
-	// int num;
-	// cout<<"Enter the number to be searched\n";
-	// cin>>num;
-	// if(search(root,num)== true)
-	// 	cout<<"Found\n";
-	// else
-	// 	cout<<"Not Found\n";
-	// Delete(root,75);
-	// Delete(root,10);
-	// cout<<"The max. element is "<<findmax(root)->val<<endl;
-	// cout<<"The min. element is "<<findmin(root)->val<<endl;
+	 int num;
+	 cout<<"Enter the number to be searched\n";
+	 cin>>num;
+	 if(search(root,num)== true)
+	 	cout<<"Found\n";
+	 else
+	 	cout<<"Not Found\n";
+	 Delete(root,75);
+	 Delete(root,10);
+	 cout<<"The max. element is "<<findmax(root)->val<<endl;
+	 cout<<"The min. element is "<<findmin(root)->val<<endl;
 	Delete(root,15);
 	preorder(root);
 	cout<<"---------------"<<endl;
