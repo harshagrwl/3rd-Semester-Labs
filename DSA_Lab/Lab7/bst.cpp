@@ -7,6 +7,7 @@ struct TreeNode{
 	struct TreeNode* right;
 };
 
+
 TreeNode* makenode(int data){
 	TreeNode* newnode = new TreeNode();
 	newnode->val = data;
@@ -103,17 +104,17 @@ TreeNode* successor(TreeNode* root, int data){
 			while(ancestor!=curr){
 				if(curr->val < ancestor->val){
 					successor = ancestor;
-					successor= ancestor->left;
+					ancestor = ancestor->left;
 				}
 				else
-					successor = ancestor->right;
+					ancestor = ancestor->right;
 			}
-			return NULL;
+			return successor;
 		}
+	}
 
-}
 
-TreeNode* predecessor(TreeNode* root, int data){
+TreeNode* predecessor(TreeNode* root, int data) {
 		struct TreeNode* curr = Find(root,data);
 		if(curr == NULL)
 			return NULL;
@@ -124,7 +125,7 @@ TreeNode* predecessor(TreeNode* root, int data){
 			struct TreeNode* predecessor = NULL;
 			while(ancestor!=curr){
 				if(curr->val > ancestor->val){
-					ancestor = ancestor;
+					predecessor = ancestor;
 					ancestor = ancestor->right;
 				}
 				else
@@ -132,8 +133,8 @@ TreeNode* predecessor(TreeNode* root, int data){
 			}
 			return predecessor;
 		}
+	}
 
-}
 
 void preorder(TreeNode* root){
 	if(root == NULL)
@@ -161,29 +162,60 @@ void leveltraversal(TreeNode* root){
 
 int main(){
 	TreeNode* root = NULL;
-	root = insert(root,10);
-	root = insert(root,15);
-	root = insert(root,20);
-	root = insert(root,35);
-	root = insert(root,75);
+	cout<<"Enter the number of elements to be inserted in the tree: ";
+	int n;
+	cin>>n;
+	cout<<"Enter the elements: ";
+	while(n--){
+		int k;
+		cin>>k;
+		root = insert(root,k);
+	}
+
 	cout<<"The max. element is "<<findmax(root)->val<<endl;
+
 	cout<<"The min. element is "<<findmin(root)->val<<endl;
 	cout<<"-----------------------------------"<<endl;
-	 int num;
+	 
 	 cout<<"Enter the number to be searched\n";
+	 int num;
 	 cin>>num;
 	 if(search(root,num)== true)
 	 	cout<<"Found\n";
 	 else
 	 	cout<<"Not Found\n";
-	 Delete(root,75);
-	 Delete(root,10);
+
+	 cout<<"Enter the number to be Deleted\n";
+	 int num1;
+	 cin>>num1;
+	 if(search(root,num1)== true)
+	 	Delete(root,num1);
+	 else
+	 	cout<<"This number is not found on the tree\n";
+	 
+
 	 cout<<"The max. element is "<<findmax(root)->val<<endl;
+
 	 cout<<"The min. element is "<<findmin(root)->val<<endl;
-	Delete(root,15);
+	
 	preorder(root);
 	cout<<"---------------"<<endl;
 	leveltraversal(root);
 	cout<<endl;
-	cout<<"predecessor of 35 is "<<predecessor(root,35)->val<<endl;
+	
+	cout<<"Enter the number to find predecessor\n";
+	 int num2;
+	 cin>>num2;
+	 if(search(root,num2)== true)
+	 	cout<<"Predecessor of "<<num2<<" is: "<<predecessor(root,num2)->val<<endl;
+	 else
+	 	cout<<"This number is not found on the tree\n";
+
+	 cout<<"Enter the number to find successor\n";
+	 int num3;
+	 cin>>num3;
+	 if(search(root,num3)== true)
+	 	cout<<"Successor of "<<num3<<" is: "<<successor(root,num3)->val<<endl;
+	 else
+	 	cout<<"This number is not found on the tree\n";
 }
