@@ -50,12 +50,16 @@ TreeNode* Find(TreeNode* root, int data){
 }
 
 TreeNode* findmax(TreeNode* root){
+	if(root == NULL)
+		return NULL;
 	while(root->right!=NULL)
 		root = root->right;
 	return root;
 }
 
 TreeNode* findmin(TreeNode* root){
+	if(root == NULL)
+		return NULL;
 	while(root->left!=NULL)
 		root = root->left;
 	return root;
@@ -88,7 +92,7 @@ TreeNode* Delete(TreeNode* root, int data){
 			root->val = temp->val;
 			root->right = Delete(root->right,temp->val);
 		}
-		return NULL;
+		return root;
 	}
 }
 
@@ -261,15 +265,21 @@ int main(){
             	int k;
             	cout<<"Enter the key to find successor: \n";
             	cin>>k;
-
-               	cout<<"The successor element is: "<<successor(root,k)->val<<endl;
+            	// TreeNode* succ = successor(root,k);
+            	// if(succ == NULL)
+            	//  	cout<<"Successor doesn't exist\n";
+            	// else
+               		cout<<"The Successor element is: "<<successor(root,k)->val<<endl;
                 break;
             case 6:
             	int k1;
             	cout<<"Enter the key to find predecessor: \n";
             	cin>>k1;
-
-               	cout<<"The predecessor element is: "<<predecessor(root,k)->val<<endl;
+            	// TreeNode* pred = predecessor(root,k1);
+            	// if(pred == NULL)
+            	//  	cout<<"Predecessor doesn't exist\n";
+            	// else
+               		cout<<"The predecessor element is: "<<predecessor(root,k1)->val<<endl;
                 break;
             case 7:
             	int d;
