@@ -32,6 +32,11 @@ using namespace std;
 		swap(a[1],a[n]);
 		n--;
 		heapify(a,1,n);
+		cout<<"The elements of the heap are: "<<endl;
+               	for(int i = 1;i<=n;i++){
+					cout<<a[i]<<" ";
+				}
+				cout<<endl;
 	}
 
 int main(){
@@ -62,7 +67,7 @@ int main(){
 	do
     {
         cout<<"Select Yout Choice\n";
-		cout<<" 1. Insert/Build-Heap\n 2. Max element\n 4. Extract Maximum\n 5. Print the tree nodes\n";
+		cout<<" 1. Insert/Build-Heap\n 2. Max element\n 3. Extract Maximum\n 4. Print the tree nodes\n";
 		cin>>choice;
         switch (choice)
         {
