@@ -1,0 +1,14 @@
+clc;
+clear all;
+close all;
+sig=1:8;
+Symbols=[1 2 3 4 5];
+P=[0.25 0.25 0.14 0.14 0.055 0.055 0.055 0.055];
+dict = huffmandict(Symbols,P);
+temp=dict;
+for i=1: length(temp)
+    temp {i,2}= num2str(temp{i,2});
+end
+disp(temp);
+hcode= huffmanenco(sig,dict)
+dhsig= huffmandeco(hcode, dict)
