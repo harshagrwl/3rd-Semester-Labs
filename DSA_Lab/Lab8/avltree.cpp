@@ -82,40 +82,84 @@ Node* findmin(Node* root){
 	return root;
 }
 
+// Node* successor(Node* root, int data){
+// 		Node* curr = Find(root,data);
+// 		if(curr == NULL)
+// 			return NULL;
+// 		if(curr->right!=NULL)
+// 			return findmin(curr->right);
+// 		else{
+// 			Node* ancestor = root;
+// 			Node* successor = NULL;
+// 			while(ancestor!=curr){
+// 				if(curr->key < ancestor->key){
+// 					successor = ancestor;
+// 					successor= ancestor->left;
+// 				}
+// 				else
+// 					successor = ancestor->right;
+// 			}
+// 			return NULL;
+// 		}
+
+// }
+
+// Node* predecessor(Node* root, int data){
+// 		Node* curr = Find(root,data);
+// 		if(curr == NULL)
+// 			return NULL;
+// 		if(curr->left!=NULL)
+// 			return findmax(curr->left);
+// 		else{
+// 			Node* ancestor = root;
+// 			Node* predecessor = NULL;
+// 			while(ancestor!=curr){
+// 				if(curr->key > ancestor->key){
+// 					ancestor = ancestor;
+// 					ancestor = ancestor->right;
+// 				}
+// 				else
+// 					ancestor = ancestor->left;
+// 			}
+// 			return predecessor;
+// 		}
+
+// }
+
 Node* successor(Node* root, int data){
-		Node* curr = Find(root,data);
+		struct Node* curr = Find(root,data);
 		if(curr == NULL)
 			return NULL;
 		if(curr->right!=NULL)
 			return findmin(curr->right);
 		else{
-			Node* ancestor = root;
-			Node* successor = NULL;
+			struct Node* ancestor = root;
+			struct Node* successor = NULL;
 			while(ancestor!=curr){
 				if(curr->key < ancestor->key){
 					successor = ancestor;
-					successor= ancestor->left;
+					ancestor = ancestor->left;
 				}
 				else
-					successor = ancestor->right;
+					ancestor = ancestor->right;
 			}
-			return NULL;
+			return successor;
 		}
+	}
 
-}
 
-Node* predecessor(Node* root, int data){
-		Node* curr = Find(root,data);
+Node* predecessor(Node* root, int data) {
+		struct Node* curr = Find(root,data);
 		if(curr == NULL)
 			return NULL;
 		if(curr->left!=NULL)
 			return findmax(curr->left);
 		else{
-			Node* ancestor = root;
-			Node* predecessor = NULL;
+			struct Node* ancestor = root;
+			struct Node* predecessor = NULL;
 			while(ancestor!=curr){
 				if(curr->key > ancestor->key){
-					ancestor = ancestor;
+					predecessor = ancestor;
 					ancestor = ancestor->right;
 				}
 				else
@@ -123,8 +167,8 @@ Node* predecessor(Node* root, int data){
 			}
 			return predecessor;
 		}
+	}
 
-}
 
 Node* insert(Node* node, int key){
 	if(node == NULL){
@@ -295,7 +339,7 @@ int main(){
             	cout<<"Enter the key to find predecessor: \n";
             	cin>>k1;
 
-               	cout<<"The predecessor element is: "<<predecessor(root,k)->key<<endl;
+               	cout<<"The predecessor element is: "<<predecessor(root,k1)->key<<endl;
                 break;
             case 7:
             	int d;
