@@ -13,15 +13,16 @@ public:
 	
 	MaxHeap();
 	
-	void siftUp(int);
-	void siftDown(int);
+	void build(int);
+	void heapify(int);
 	
 	void insert(int);
 	
-	int getMax();
+	int Maxele();
 	void extractMax();
 	
 	void deleteHeap();
+	void print();
 };
 
 MaxHeap::MaxHeap()
@@ -37,18 +38,18 @@ void MaxHeap::swap(int a, int b)
 	arr[b] = temp;
 }
 
-void MaxHeap::siftUp(int index)
+void MaxHeap::build(int index)
 {
 	int parent = (index-1)/2;
 	
 	if (arr[parent] < arr[index])
 	{
 		swap(parent, index);
-		siftUp(parent);
+		build(parent);
 	}
 }
 
-void MaxHeap::siftDown(int index)
+void MaxHeap::heapify(int index)
 {
 	int lchild = 2 * index + 1;
 	int rchild = 2 * index + 2;
@@ -67,7 +68,7 @@ void MaxHeap::siftDown(int index)
 	if (max != index)
 	{
 		swap(max, index);
-		siftDown(max);
+		heapify(max);
 	}
 }
 
@@ -79,10 +80,10 @@ void MaxHeap::insert(int data)
 	}
 	
 	arr[n] = data;
-	siftUp(n++);
+	build(n++);
 }
 
-int MaxHeap::getMax()
+int MaxHeap::Maxele()
 {
 	if (n == 0)
 	{
@@ -100,7 +101,7 @@ void MaxHeap::extractMax()
 	}
 	
 	swap(0, --n);
-	siftDown(0);
+	heapify(0);
 }
 
 void MaxHeap::deleteHeap()
@@ -108,14 +109,21 @@ void MaxHeap::deleteHeap()
 	n = 0;
 }
 
+void MaxHeap::print(){
+	for(int i = 0;i<n;i++){
+		cout<<arr[i]<<" ";
+	}
+	cout<<endl;
+}
+
 int main()
 {
 	MaxHeap h;
 	
 	int choice = -1;
-	while (choice != 5)
+	while (choice != 4)
 	{
-		cout << "1. Build Heap\n2. Insert into Heap\n3. Get Maximum Element\n4. Extract Maximum Element\n5. Exit\n";
+		cout << "1. Build Heap\n2. Insert into Heap\n3. Get Maximum Element\n4. Extract Maximum Element\n5. Print\n";
 		cout << "Enter your Choice : ";
 		cin >> choice;
 		
@@ -145,7 +153,7 @@ int main()
 				
 			case 3:
 				cout<<"The maximum element in the heap is:  ";
-				cout << h.getMax() << endl;
+				cout << h.Maxele() << endl;
 				break;
 				
 			case 4:
@@ -153,8 +161,8 @@ int main()
 				break;
 				
 			case 5:
+				h.print();
 				break;
-				
 			default:
 				cout << "Invalid Choice" << endl;
 				break;
